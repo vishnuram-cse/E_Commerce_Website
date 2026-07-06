@@ -1,0 +1,15 @@
+# Standard gitignore entries
+node_modules/
+.env
+client/node_modules/
+server/node_modules/
+client/dist/
+*.log
+
+# Additional build/editor files
+build/
+.cache/
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
