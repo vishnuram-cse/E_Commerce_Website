@@ -16,7 +16,7 @@ const PORT = process.env.PORT || 5000;
 
 // 1. Enable CORS for React frontend (Vite default is http://localhost:5173)
 app.use(cors({
-  origin: ['http://localhost:5173', 'http://127.0.0.1:5173'],
+  origin: ['http://localhost:5173', 'http://127.0.0.1:5173', 'https://e-commerce-website-pink-beta.vercel.app'],
   credentials: true
 }));
 
