@@ -1,10 +1,7 @@
 import React, { createContext, useState, useEffect, useContext } from 'react';
-import axios from 'axios';
+import api from '../api/axiosConfig';
 
-// Create custom axios instance
-export const api = axios.create({
-  baseURL: 'http://localhost:5000/api'
-});
+export { api };
 
 const AuthContext = createContext(null);
 
