@@ -85,7 +85,7 @@ const Cart = () => {
               alignItems: 'center'
             }}>
               {/* Product Image */}
-              <div style={{ width: '80px', height: '80px', borderRadius: 'var(--radius-sm)', overflow: 'hidden', background: '#1c1d24', border: '1px solid var(--border-color)' }}>
+              <div style={{ width: '80px', height: '80px', borderRadius: 'var(--radius-sm)', overflow: 'hidden', background: '#ffffff', border: '1px solid var(--border-color)' }}>
                 <img
                   src={item.image_url || 'https://images.unsplash.com/photo-1531403009284-440f080d1e12?w=500&auto=format&fit=crop&q=60'}
                   alt={item.name}

@@ -47,7 +47,7 @@ const Checkout = () => {
           <CheckCircle2 size={56} color="var(--color-success)" />
           <h2 style={{ fontSize: '1.75rem', fontWeight: 800 }}>Order Confirmed!</h2>
           <p style={{ color: 'var(--text-secondary)' }}>
-            Thank you for your purchase. Your order <strong>#ORB-{orderSuccess.id}</strong> has been successfully placed.
+            Thank you for your purchase. Your order <strong>#VBZ-{orderSuccess.id}</strong> has been successfully placed.
           </p>
           
           <div style={{

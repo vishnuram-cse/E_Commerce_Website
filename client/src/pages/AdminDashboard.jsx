@@ -427,7 +427,7 @@ const AdminDashboard = () => {
               <tbody>
                 {orders.map(order => (
                   <tr key={order.id} style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.04)' }}>
-                    <td style={{ padding: '16px', fontWeight: 700 }}>#ORB-{order.id}</td>
+                    <td style={{ padding: '16px', fontWeight: 700 }}>#VBZ-{order.id}</td>
                     <td style={{ padding: '16px' }}>
                       <div>{order.user_name}</div>
                       <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>{order.user_email}</div>

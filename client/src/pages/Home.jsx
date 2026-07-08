@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { api } from '../context/AuthContext';
 import { useCart } from '../context/CartContext';
 import { useAuth } from '../context/AuthContext';
@@ -19,7 +19,16 @@ const Home = () => {
   const { user } = useAuth();
   const { addToCart } = useCart();
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
   const limit = 6; // Display 6 products per page
+
+  const urlSearch = searchParams.get('search') || '';
+
+  // Synchronize URL search parameter with search state and reset to page 1
+  useEffect(() => {
+    setSearch(urlSearch);
+    setPage(1);
+  }, [urlSearch]);
 
   // Fetch Categories
   useEffect(() => {
@@ -61,7 +70,7 @@ const Home = () => {
 
   useEffect(() => {
     fetchProducts();
-  }, [page, selectedCategory]);
+  }, [page, selectedCategory, search]);
 
   const handleSearchSubmit = (e) => {
     e.preventDefault();
@@ -122,45 +131,34 @@ const Home = () => {
 
       {/* Header Banner */}
       <div className="glass-panel" style={{
-        padding: '40px',
-        marginBottom: '32px',
+        padding: '30px',
+        marginBottom: '24px',
         display: 'flex',
         flexDirection: 'column',
-        gap: '16px',
-        background: 'linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, rgba(168, 85, 247, 0.05) 100%)',
-        textAlign: 'center'
+        gap: '10px',
+        background: '#ffffff',
+        textAlign: 'center',
+        border: '1px solid var(--border-color)',
+        borderRadius: 'var(--radius-sm)'
       }}>
-        <h1 style={{ fontSize: '2.5rem', fontWeight: 800, background: 'var(--gradient-primary)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
-          Discover Orbit Products
+        <h1 style={{ fontSize: '2rem', fontWeight: 800, color: 'var(--color-primary)' }}>
+          Discover V-Bazaar Products
         </h1>
-        <p style={{ color: 'var(--text-secondary)', maxWidth: '600px', margin: '0 auto', fontSize: '1rem' }}>
-          Explore our handpicked curation of elite wireless accessories, ergonomic living items, and stylish fashion wear.
+        <p style={{ color: 'var(--text-secondary)', maxWidth: '600px', margin: '0 auto', fontSize: '0.95rem' }}>
+          Your one-stop bazaar for electronics, fashion, home essentials, and more — all in one place.
         </p>
       </div>
 
-      {/* Controls Container (Search & Categories) */}
+      {/* Controls Container (Categories Filter) */}
       <div style={{
         display: 'flex',
         flexDirection: 'column',
-        gap: '20px',
-        marginBottom: '32px'
+        gap: '12px',
+        marginBottom: '24px'
       }}>
-        {/* Search Bar */}
-        <form onSubmit={handleSearchSubmit} style={{ display: 'flex', gap: '12px' }}>
-          <div style={{ position: 'relative', flex: 1 }}>
-            <Search size={18} color="var(--text-muted)" style={{ position: 'absolute', left: '16px', top: '50%', transform: 'translateY(-50%)' }} />
-            <input
-              type="text"
-              className="input-field"
-              placeholder="Search products by name..."
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-              style={{ paddingLeft: '48px' }}
-            />
-          </div>
-          <button type="submit" className="btn btn-primary">Search</button>
-        </form>
-
+        <span style={{ fontSize: '0.95rem', fontWeight: 700, color: 'var(--text-primary)' }}>
+          Filter by Category
+        </span>
         {/* Category Filter Pills */}
         <div style={{
           display: 'flex',
@@ -220,7 +218,7 @@ const Home = () => {
               onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}>
                 
                 {/* Product Image */}
-                <div style={{ width: '100%', height: '200px', overflow: 'hidden', background: '#1c1d24', relative: 'true' }}>
+                <div style={{ width: '100%', height: '200px', overflow: 'hidden', background: '#ffffff', borderBottom: '1px solid var(--border-color)', position: 'relative' }}>
                   <img
                     src={prod.image_url || 'https://images.unsplash.com/photo-1531403009284-440f080d1e12?w=500&auto=format&fit=crop&q=60'}
                     alt={prod.name}

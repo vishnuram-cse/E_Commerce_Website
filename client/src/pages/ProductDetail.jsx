@@ -132,7 +132,7 @@ const ProductDetail = () => {
           borderRadius: 'var(--radius-md)',
           overflow: 'hidden',
           border: '1px solid var(--border-color)',
-          background: '#12131a',
+          background: '#ffffff',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
@@ -207,7 +207,7 @@ const ProductDetail = () => {
                   border: '1px solid var(--border-color)',
                   borderRadius: 'var(--radius-sm)',
                   overflow: 'hidden',
-                  background: 'rgba(0,0,0,0.2)'
+                  background: '#f1f3f6'
                 }}>
                   <button
                     onClick={() => setQuantity(q => Math.max(q - 1, 1))}

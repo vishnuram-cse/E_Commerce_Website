@@ -102,7 +102,7 @@ const MyOrders = () => {
                   <div style={{ display: 'flex', gap: '24px', flexWrap: 'wrap' }}>
                     <div>
                       <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', fontWeight: 600 }}>ORDER REFERENCE</div>
-                      <div style={{ fontWeight: 700, color: 'var(--text-primary)' }}>#ORB-{order.id}</div>
+                      <div style={{ fontWeight: 700, color: 'var(--text-primary)' }}>#VBZ-{order.id}</div>
                     </div>
 
                     <div>
@@ -158,7 +158,7 @@ const MyOrders = () => {
                               borderRadius: 'var(--radius-sm)'
                             }}>
                               <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-                                <div style={{ width: '40px', height: '40px', borderRadius: 'var(--radius-sm)', overflow: 'hidden', background: '#1c1d24', border: '1px solid var(--border-color)' }}>
+                                <div style={{ width: '40px', height: '40px', borderRadius: 'var(--radius-sm)', overflow: 'hidden', background: '#ffffff', border: '1px solid var(--border-color)' }}>
                                   <img 
                                     src={item.image_url || 'https://images.unsplash.com/photo-1531403009284-440f080d1e12?w=500&auto=format&fit=crop&q=60'} 
                                     alt={item.product_name || 'Deleted Product'} 
