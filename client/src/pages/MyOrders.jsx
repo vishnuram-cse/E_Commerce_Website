@@ -116,7 +116,7 @@ const MyOrders = () => {
                     <div>
                       <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', fontWeight: 600 }}>TOTAL AMOUNT</div>
                       <div style={{ fontSize: '0.95rem', fontWeight: 700, color: 'var(--text-primary)' }}>
-                        ${parseFloat(order.total_amount).toFixed(2)}
+                        ₹{parseFloat(order.total_amount).toFixed(2)}
                       </div>
                     </div>
                   </div>
@@ -175,7 +175,7 @@ const MyOrders = () => {
                                 </div>
                               </div>
                               <span style={{ fontWeight: 700, fontSize: '0.95rem' }}>
-                                ${parseFloat(item.price_at_purchase).toFixed(2)}
+                                ₹{parseFloat(item.price_at_purchase).toFixed(2)}
                               </span>
                             </div>
                           ))}

@@ -256,7 +256,7 @@ const AdminDashboard = () => {
           </div>
           <div>
             <div style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', fontWeight: 600 }}>TOTAL REVENUE</div>
-            <div style={{ fontSize: '1.75rem', fontWeight: 800 }}>${stats.totalRevenue.toFixed(2)}</div>
+            <div style={{ fontSize: '1.75rem', fontWeight: 800 }}>₹{stats.totalRevenue.toFixed(2)}</div>
           </div>
         </div>
       </div>
@@ -323,7 +323,7 @@ const AdminDashboard = () => {
                   <input type="text" className="input-field" value={productName} onChange={(e) => setProductName(e.target.value)} required />
                 </div>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
-                  <label style={{ fontSize: '0.8rem', fontWeight: 600, color: 'var(--text-secondary)' }}>Price ($)</label>
+                  <label style={{ fontSize: '0.8rem', fontWeight: 600, color: 'var(--text-secondary)' }}>Price (₹)</label>
                   <input type="number" step="0.01" className="input-field" value={productPrice} onChange={(e) => setProductPrice(e.target.value)} required />
                 </div>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
@@ -384,7 +384,7 @@ const AdminDashboard = () => {
                       {prod.category_name || 'Uncategorized'}
                     </td>
                     <td style={{ padding: '12px 16px', fontWeight: 700 }}>
-                      ${parseFloat(prod.price).toFixed(2)}
+                      ₹{parseFloat(prod.price).toFixed(2)}
                     </td>
                     <td style={{ padding: '12px 16px', color: prod.stock_quantity > 0 ? 'var(--color-success)' : 'var(--color-danger)', fontWeight: 600 }}>
                       {prod.stock_quantity}
@@ -436,7 +436,7 @@ const AdminDashboard = () => {
                       {new Date(order.created_at).toLocaleDateString()}
                     </td>
                     <td style={{ padding: '16px', fontWeight: 700 }}>
-                      ${parseFloat(order.total_amount).toFixed(2)}
+                      ₹{parseFloat(order.total_amount).toFixed(2)}
                     </td>
                     <td style={{ padding: '16px' }}>
                       <span className={`badge badge-${order.status}`}>{order.status}</span>

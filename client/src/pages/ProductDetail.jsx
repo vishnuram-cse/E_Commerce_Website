@@ -164,7 +164,7 @@ const ProductDetail = () => {
 
           <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
             <span style={{ fontSize: '2rem', fontWeight: 800, color: 'var(--text-primary)' }}>
-              ${parseFloat(product.price).toFixed(2)}
+              ₹{parseFloat(product.price).toFixed(2)}
             </span>
             
             <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>

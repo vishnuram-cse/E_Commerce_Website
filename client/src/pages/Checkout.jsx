@@ -64,7 +64,7 @@ const Checkout = () => {
             margin: '10px 0'
           }}>
             <div><strong>Deliver to:</strong> {orderSuccess.shipping_address}</div>
-            <div><strong>Total Paid:</strong> ${parseFloat(orderSuccess.total_amount).toFixed(2)}</div>
+            <div><strong>Total Paid:</strong> ₹{parseFloat(orderSuccess.total_amount).toFixed(2)}</div>
             <div><strong>Status:</strong> <span className="badge badge-pending">{orderSuccess.status}</span></div>
           </div>
 
@@ -157,7 +157,7 @@ const Checkout = () => {
           </div>
 
           <button type="submit" className="btn btn-primary" style={{ width: '100%', padding: '14px', fontSize: '1rem', marginTop: '10px' }} disabled={loading}>
-            {loading ? 'Processing Order...' : `Place Order ($${subtotal.toFixed(2)})`}
+            {loading ? 'Processing Order...' : `Place Order (₹${subtotal.toFixed(2)})`}
           </button>
         </form>
 
@@ -172,10 +172,10 @@ const Checkout = () => {
               <div key={item.id} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '12px', fontSize: '0.9rem' }}>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '2px', flex: 1 }}>
                   <span style={{ fontWeight: 600 }}>{item.name}</span>
-                  <span style={{ color: 'var(--text-secondary)', fontSize: '0.8rem' }}>Qty: {item.quantity} x ${parseFloat(item.price).toFixed(2)}</span>
+                  <span style={{ color: 'var(--text-secondary)', fontSize: '0.8rem' }}>Qty: {item.quantity} x ₹{parseFloat(item.price).toFixed(2)}</span>
                 </div>
                 <span style={{ fontWeight: 700 }}>
-                  ${(parseFloat(item.price) * item.quantity).toFixed(2)}
+                  ₹{(parseFloat(item.price) * item.quantity).toFixed(2)}
                 </span>
               </div>
             ))}
@@ -184,7 +184,7 @@ const Checkout = () => {
           <div style={{ borderTop: '1px solid var(--border-color)', paddingTop: '16px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.9rem' }}>
               <span style={{ color: 'var(--text-secondary)' }}>Items Subtotal</span>
-              <span>${subtotal.toFixed(2)}</span>
+              <span>₹{subtotal.toFixed(2)}</span>
             </div>
             <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.9rem' }}>
               <span style={{ color: 'var(--text-secondary)' }}>Shipping</span>
@@ -201,7 +201,7 @@ const Checkout = () => {
               marginTop: '4px'
             }}>
               <span>Total Payment</span>
-              <span>${subtotal.toFixed(2)}</span>
+              <span>₹{subtotal.toFixed(2)}</span>
             </div>
           </div>
         </div>

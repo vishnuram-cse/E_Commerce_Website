@@ -266,7 +266,7 @@ const Home = () => {
                   
                   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginTop: '8px' }}>
                     <span style={{ fontSize: '1.4rem', fontWeight: 800, color: 'var(--text-primary)' }}>
-                      ${parseFloat(prod.price).toFixed(2)}
+                      ₹{parseFloat(prod.price).toFixed(2)}
                     </span>
                     <span style={{ fontSize: '0.8rem', color: prod.stock_quantity > 5 ? 'var(--color-success)' : prod.stock_quantity > 0 ? 'var(--color-warning)' : 'var(--color-danger)' }}>
                       {prod.stock_quantity > 5 ? `${prod.stock_quantity} In Stock` : prod.stock_quantity > 0 ? `Only ${prod.stock_quantity} left!` : 'Out of Stock'}

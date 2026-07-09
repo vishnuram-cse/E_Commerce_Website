@@ -97,7 +97,7 @@ const Cart = () => {
               <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '4px' }}>
                 <h4 style={{ fontSize: '1.05rem', fontWeight: 700 }}>{item.name}</h4>
                 <span style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>
-                  Price: ${parseFloat(item.price).toFixed(2)}
+                  Price: ₹{parseFloat(item.price).toFixed(2)}
                 </span>
               </div>
 
@@ -143,7 +143,7 @@ const Cart = () => {
 
               {/* Subtotal */}
               <div style={{ fontSize: '1.1rem', fontWeight: 700, width: '100px', textAlign: 'right' }}>
-                ${(parseFloat(item.price) * item.quantity).toFixed(2)}
+                ₹{(parseFloat(item.price) * item.quantity).toFixed(2)}
               </div>
 
               {/* Remove Action */}
@@ -174,7 +174,7 @@ const Cart = () => {
           <div style={{ borderBottom: '1px solid var(--border-color)', paddingBottom: '16px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.95rem' }}>
               <span style={{ color: 'var(--text-secondary)' }}>Items ({cart.length})</span>
-              <span>${subtotal.toFixed(2)}</span>
+              <span>₹{subtotal.toFixed(2)}</span>
             </div>
             <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.95rem' }}>
               <span style={{ color: 'var(--text-secondary)' }}>Shipping</span>
@@ -184,7 +184,7 @@ const Cart = () => {
 
           <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '1.2rem', fontWeight: 800 }}>
             <span>Total</span>
-            <span>${subtotal.toFixed(2)}</span>
+            <span>₹{subtotal.toFixed(2)}</span>
           </div>
 
           <button onClick={() => navigate('/checkout')} className="btn btn-primary" style={{ width: '100%', padding: '12px', fontSize: '0.95rem', marginTop: '8px' }}>
