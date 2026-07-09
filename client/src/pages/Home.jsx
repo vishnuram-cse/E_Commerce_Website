@@ -83,7 +83,7 @@ const Home = () => {
       navigate('/login');
       return;
     }
-    
+
     if (product.stock_quantity <= 0) {
       showToast('danger', 'This product is out of stock!');
       return;
@@ -215,10 +215,10 @@ const Home = () => {
                 position: 'relative',
                 cursor: 'pointer'
               }}
-              onClick={() => navigate(`/product/${prod.id}`)}
-              onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-6px)'}
-              onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'>
-                
+                onClick={() => navigate(`/product/${prod.id}`)}
+                onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-6px)'}
+                onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}>
+
                 {/* Product Image */}
                 <div style={{ width: '100%', height: '200px', overflow: 'hidden', background: '#ffffff', borderBottom: '1px solid var(--border-color)', position: 'relative' }}>
                   <img
@@ -265,7 +265,7 @@ const Home = () => {
                   }}>
                     {prod.description}
                   </p>
-                  
+
                   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginTop: '8px' }}>
                     <span style={{ fontSize: '1.4rem', fontWeight: 800, color: 'var(--text-primary)' }}>
                       ₹{parseFloat(prod.price).toFixed(2)}
