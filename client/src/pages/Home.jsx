@@ -3,7 +3,7 @@ import { useNavigate, useSearchParams } from 'react-router-dom';
 import { api } from '../context/AuthContext';
 import { useCart } from '../context/CartContext';
 import { useAuth } from '../context/AuthContext';
-import { Search, ShoppingCart, Info, AlertCircle, ArrowLeft, ArrowRight } from 'lucide-react';
+import { Search, ShoppingCart, AlertCircle, ArrowLeft, ArrowRight } from 'lucide-react';
 
 const Home = () => {
   const [products, setProducts] = useState([]);
@@ -212,10 +212,12 @@ const Home = () => {
                 flexDirection: 'column',
                 overflow: 'hidden',
                 transition: 'var(--transition-normal)',
-                position: 'relative'
+                position: 'relative',
+                cursor: 'pointer'
               }}
+              onClick={() => navigate(`/product/${prod.id}`)}
               onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-6px)'}
-              onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}>
+              onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'>
                 
                 {/* Product Image */}
                 <div style={{ width: '100%', height: '200px', overflow: 'hidden', background: '#ffffff', borderBottom: '1px solid var(--border-color)', position: 'relative' }}>
@@ -276,17 +278,9 @@ const Home = () => {
                   {/* Actions */}
                   <div style={{ display: 'flex', gap: '8px', marginTop: '8px' }}>
                     <button
-                      onClick={() => navigate(`/product/${prod.id}`)}
-                      className="btn btn-secondary"
-                      style={{ flex: 1, padding: '8px' }}
-                    >
-                      <Info size={16} />
-                      <span>Details</span>
-                    </button>
-                    <button
-                      onClick={() => handleAddToCart(prod)}
+                      onClick={(e) => { e.stopPropagation(); handleAddToCart(prod); }}
                       className="btn btn-primary"
-                      style={{ flex: 2, padding: '8px' }}
+                      style={{ flex: 1, padding: '8px' }}
                       disabled={prod.stock_quantity <= 0}
                     >
                       <ShoppingCart size={16} />
